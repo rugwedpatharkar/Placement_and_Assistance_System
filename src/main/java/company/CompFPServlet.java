@@ -60,8 +60,8 @@ public class CompFPServlet extends HttpServlet {
 				message.setSubject("Verification code");
 				message.setText("Please use the verification code below to sign in. '" + otpvalue
 						+ "'. If you didn’t request this, you can ignore this email.\r\n" + "\r\n" + "Thank you."
-								+ "Thank you.\r\n"
-								+ "This is auto generated email, please do not reply to this email, for further communication contact college or find college contact details on above mentioned web site.\r\n"
+						+ "Thank you.\r\n"
+						+ "This is auto generated email, please do not reply to this email, for further communication contact college or find college contact details on above mentioned web site.\r\n"
 						+ "Placement and Assistance System ");
 				// send message
 				Transport.send(message);

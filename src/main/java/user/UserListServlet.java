@@ -17,13 +17,12 @@ import jakarta.servlet.http.HttpSession;
 public class UserListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	Connection conn = null;
+
+	ResultSet rs = null;
 	public UserListServlet() {
 		super();
 	}
-
-	
-	Connection conn = null;
-	ResultSet rs = null;
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -34,8 +33,9 @@ public class UserListServlet extends HttpServlet {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection connection = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
+			Connection connection = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root",
+					"password");
 			PreparedStatement preparedStatement = connection.prepareStatement("select * from user where uid=?");
 			preparedStatement.setString(1, uid);
 			ResultSet rs = preparedStatement.executeQuery();

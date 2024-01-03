@@ -36,8 +36,9 @@ public class AdminLoginServlet extends HttpServlet {
 		}
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection connection = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
+			Connection connection = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root",
+					"password");
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("select * from admin where a_uname = ? and a_pass = ? ");
 			preparedStatement.setString(1, a_uname);

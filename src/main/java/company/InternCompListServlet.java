@@ -18,15 +18,15 @@ import jakarta.servlet.http.HttpSession;
 public class InternCompListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public InternCompListServlet() {
-		super();
-	}
-
 	public static String jdbcURL = "jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false";
+
 	public static String jdbcUsername = "root";
 	public static String jdbcPassword = "password";
 	Connection conn = null;
 	ResultSet rs = null;
+	public InternCompListServlet() {
+		super();
+	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -64,7 +64,7 @@ public class InternCompListServlet extends HttpServlet {
 				String company_name = rs.getString("company_name");
 
 				Intern intern = new Intern(intern_id, intern_role, intern_description, intern_type, intern_duration,
-						intern_stipend, intern_location, company_cid1,company_name);
+						intern_stipend, intern_location, company_cid1, company_name);
 				interns.add(intern);
 			}
 

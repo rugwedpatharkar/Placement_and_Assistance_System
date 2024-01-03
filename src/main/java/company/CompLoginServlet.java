@@ -36,8 +36,9 @@ public class CompLoginServlet extends HttpServlet {
 		}
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection connection = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
+			Connection connection = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root",
+					"password");
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("select * from company where c_uname = ? and c_pass = ? ");
 			preparedStatement.setString(1, c_uname);

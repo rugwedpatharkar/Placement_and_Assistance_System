@@ -26,21 +26,22 @@ public class Comp implements Serializable {
 		this.c_mobno = c_mobno;
 	}
 
-	public Comp(String c_name, String c_email, String c_address, String c_uname, String c_pass, String c_mobno) {
-		super();
-		this.c_name = c_name;
-		this.c_uname = c_uname;
-		this.c_email = c_email;
-		this.c_pass = c_pass;
-		this.c_address = c_address;
-		this.c_mobno = c_mobno;
-	}
 	public Comp(int cid, String c_name, String c_email, String c_address, String c_uname, String c_mobno) {
 		super();
 		this.cid = cid;
 		this.c_name = c_name;
 		this.c_uname = c_uname;
 		this.c_email = c_email;
+		this.c_address = c_address;
+		this.c_mobno = c_mobno;
+	}
+
+	public Comp(String c_name, String c_email, String c_address, String c_uname, String c_pass, String c_mobno) {
+		super();
+		this.c_name = c_name;
+		this.c_uname = c_uname;
+		this.c_email = c_email;
+		this.c_pass = c_pass;
 		this.c_address = c_address;
 		this.c_mobno = c_mobno;
 	}

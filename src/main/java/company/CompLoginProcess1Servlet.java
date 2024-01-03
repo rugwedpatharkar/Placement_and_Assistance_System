@@ -59,11 +59,10 @@ public class CompLoginProcess1Servlet extends HttpServlet {
 						+ "'. If you didn’t request this, you can ignore this email.\r\n" + "\r\n" + "Thank you."
 						+ "Thank you.\r\n"
 						+ "This is auto generated email, please do not reply to this email, for further communication contact college or find college contact details on above mentioned web site.\r\n"
-				+ "Placement and Assistance System ");
+						+ "Placement and Assistance System ");
 				Transport.send(message);
 				System.out.println("message sent successfully");
-			}
-			catch (MessagingException e) {
+			} catch (MessagingException e) {
 				throw new RuntimeException(e);
 			}
 			dispatcher = request.getRequestDispatcher("comp_signin2.jsp");

@@ -72,7 +72,6 @@ public class InternDao {
 				String intern_location = rs.getString("intern_location");
 				String company_name = rs.getString("company_name");
 
-
 				intern = new Intern(intern_id, intern_role, intern_description, intern_type, intern_duration,
 						intern_stipend, intern_location, company_name);
 			}

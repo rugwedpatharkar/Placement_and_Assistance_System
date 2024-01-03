@@ -16,6 +16,17 @@ public class Job implements Serializable {
 	public Job() {
 	}
 
+	public Job(int job_id, String job_role, String job_description, String job_type, String job_location,
+			String job_xp) {
+		super();
+		this.job_id = job_id;
+		this.job_role = job_role;
+		this.job_description = job_description;
+		this.job_type = job_type;
+		this.job_location = job_location;
+		this.job_xp = job_xp;
+	}
+
 	public Job(int job_id, String job_role, String job_description, String job_type, String job_location, String job_xp,
 			int company_cid1) {
 		super();
@@ -28,23 +39,8 @@ public class Job implements Serializable {
 		this.company_cid1 = company_cid1;
 	}
 
-	public Job(int job_id, String job_role, String job_description, String job_type, String job_location,
-			String job_xp) {
-		super();
-		this.job_id = job_id;
-		this.job_role = job_role;
-		this.job_description = job_description;
-		this.job_type = job_type;
-		this.job_location = job_location;
-		this.job_xp = job_xp;
-	}
-
-	public String getjob_xp() {
-		return job_xp;
-	}
-
-	public String getjob_role() {
-		return job_role;
+	public int getcompany_cid1() {
+		return company_cid1;
 	}
 
 	public String getjob_description() {
@@ -55,24 +51,24 @@ public class Job implements Serializable {
 		return job_id;
 	}
 
-	public int getcompany_cid1() {
-		return company_cid1;
+	public String getjob_location() {
+		return job_location;
+	}
+
+	public String getjob_role() {
+		return job_role;
 	}
 
 	public String getjob_type() {
 		return job_type;
 	}
 
-	public String getjob_location() {
-		return job_location;
+	public String getjob_xp() {
+		return job_xp;
 	}
 
-	public void setjob_xp(String job_xp) {
-		this.job_xp = job_xp;
-	}
-
-	public void setjob_role(String job_role) {
-		this.job_role = job_role;
+	public void setcompany_cid1(int company_cid1) {
+		this.company_cid1 = company_cid1;
 	}
 
 	public void setjob_description(String job_description) {
@@ -83,16 +79,20 @@ public class Job implements Serializable {
 		this.job_id = job_id;
 	}
 
-	public void setcompany_cid1(int company_cid1) {
-		this.company_cid1 = company_cid1;
+	public void setjob_location(String job_location) {
+		this.job_location = job_location;
+	}
+
+	public void setjob_role(String job_role) {
+		this.job_role = job_role;
 	}
 
 	public void setjob_type(String job_type) {
 		this.job_type = job_type;
 	}
 
-	public void setjob_location(String job_location) {
-		this.job_location = job_location;
+	public void setjob_xp(String job_xp) {
+		this.job_xp = job_xp;
 	}
 
 }

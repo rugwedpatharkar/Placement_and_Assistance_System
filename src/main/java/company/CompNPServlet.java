@@ -27,8 +27,9 @@ public class CompNPServlet extends HttpServlet {
 
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false",
-						"root", "password");
+				Connection con = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root",
+						"password");
 				PreparedStatement pst = con.prepareStatement("update company set c_pass = ? where c_email = ? ");
 				pst.setString(1, c_pass);
 				pst.setString(2, (String) session.getAttribute("c_email"));

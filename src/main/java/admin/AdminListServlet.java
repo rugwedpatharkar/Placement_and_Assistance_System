@@ -17,15 +17,15 @@ import jakarta.servlet.http.HttpSession;
 public class AdminListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public AdminListServlet() {
-		super();
-	}
-
 	public static String jdbcURL = "jdbc:mysql://localhost:3306/placementcell?useSSL=false";
+
 	public static String jdbcUsername = "root";
 	public static String jdbcPassword = "password";
 	Connection conn = null;
 	ResultSet rs = null;
+	public AdminListServlet() {
+		super();
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -36,8 +36,9 @@ public class AdminListServlet extends HttpServlet {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection connection = DriverManager
-					.getConnection("jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root", "password");
+			Connection connection = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false", "root",
+					"password");
 			PreparedStatement preparedStatement = connection.prepareStatement("select * from admin where aid=?");
 			preparedStatement.setString(1, aid);
 			ResultSet rs = preparedStatement.executeQuery();

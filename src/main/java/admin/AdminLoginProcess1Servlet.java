@@ -60,8 +60,7 @@ public class AdminLoginProcess1Servlet extends HttpServlet {
 						+ "Placement and Assistance System ");
 				Transport.send(message);
 				System.out.println("message sent successfully");
-			}
-			catch (MessagingException e) {
+			} catch (MessagingException e) {
 				throw new RuntimeException(e);
 			}
 			dispatcher = request.getRequestDispatcher("admin_signin2.jsp");

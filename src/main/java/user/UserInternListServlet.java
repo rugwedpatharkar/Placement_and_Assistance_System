@@ -18,33 +18,35 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class UserInternListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-    public UserInternListServlet() {
-        super();
-    }
-    public static String jdbcURL = "jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false";
+
+	public static String jdbcURL = "jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false";
+
 	public static String jdbcUsername = "root";
 	public static String jdbcPassword = "password";
 	Connection conn = null;
 	ResultSet rs = null;
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List < Intern > listIntern = selectAllIntern();
-        request.setAttribute("listIntern", listIntern);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("user_internship.jsp");
-        dispatcher.forward(request, response);
+	public UserInternListServlet() {
+		super();
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		List<Intern> listIntern = selectAllIntern();
+		request.setAttribute("listIntern", listIntern);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("user_internship.jsp");
+		dispatcher.forward(request, response);
 
 	}
 
-	private List<Intern>  selectAllIntern() {
+	private List<Intern> selectAllIntern() {
 		List<Intern> interns = new ArrayList<>();
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection connection = DriverManager
 					.getConnection("jdbc:mysql://localhost:3306/placementcell?useSSL=false", "root", "password");
-			PreparedStatement preparedStatement = connection
-					.prepareStatement("select * from internship ");
+			PreparedStatement preparedStatement = connection.prepareStatement("select * from internship ");
 
 			System.out.println(preparedStatement);
 			ResultSet rs = preparedStatement.executeQuery();
@@ -59,7 +61,7 @@ public class UserInternListServlet extends HttpServlet {
 				String company_name = rs.getString("company_name");
 
 				Intern intern = new Intern(intern_id, intern_role, intern_description, intern_type, intern_duration,
-						intern_stipend, intern_location,company_name);
+						intern_stipend, intern_location, company_name);
 				interns.add(intern);
 			}
 

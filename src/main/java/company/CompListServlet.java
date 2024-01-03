@@ -17,15 +17,15 @@ import jakarta.servlet.http.HttpSession;
 public class CompListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public CompListServlet() {
-		super();
-	}
-
 	public static String jdbcURL = "jdbc:mysql://localhost:3306/placementcell?allowPublicKeyRetrieval=true&useSSL=false";
+
 	public static String jdbcUsername = "root";
 	public static String jdbcPassword = "password";
 	Connection conn = null;
 	ResultSet rs = null;
+	public CompListServlet() {
+		super();
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
